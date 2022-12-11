@@ -1,0 +1,19 @@
+{
+  "name": "kmunch",
+  "version": "1.0.0",
+  "description": "Text Compression",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "kmunch",
+    "compression"
+  ],
+  "author": "Toroid Games",
+  "license": "MIT",
+  "dependencies": {
+    "pako": "^2.1.0"
+  },
+  "devDependencies": {}
+}
