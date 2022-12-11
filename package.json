@@ -2,9 +2,12 @@
   "name": "kmunch",
   "version": "1.0.0",
   "description": "Text Compression",
-  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./lib.js"
+  },
   "scripts": {
-    "test": "test"
+    "test": "node ./test.js"
   },
   "keywords": [
     "kmunch",

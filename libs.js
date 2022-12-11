@@ -1,35 +1,35 @@
-const fs = require('fs');
+import {readFile} from 'fs/promises'
 //const { cwd } = require('process');
 
-function charDefault()
+const charDefault = () =>
 {
-    return [
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-    ];
+  return [
+      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+  ];
 }
 
-const charList = charDefault();
-const libX = fs.readFileSync('./dic.txt', {encoding:'utf8'}).split(/\n/g);
-console.log(libX);
-let x = ['yey', 'nop', 'wtf'];
+export const charList = charDefault();
+
+export const libX = (await readFile('./dic.txt', {encoding:'utf8'})).split(/\r\n/g);
+
+export let x = ['yey', 'nop', 'wtf'];
 
 // Inflate from Code to Integer - requires alphanumeric string
-function AA(a){
-    let b = 0;
-    let c = a.length - 1;
-    for (let i = 0; i <= a.length - 1; i++, c--)
-    {
-        b += charList.indexOf(a[c]) * Math.pow(charList.length, i);
-    }
-    return b;
+export const AA = (a) => {
+  let b = 0;
+  let c = a.length - 1;
+  for (let i = 0; i <= a.length - 1; i++, c--) {
+    b += charList.indexOf(a[c]) * Math.pow(charList.length, i);
+  }
+  return b;
 }
 
 // Deflate to Code - requires integer
-function VV(n)
+export const VV = n => 
 {
     let y = charList.length;
     let a = Math.floor(n / y);
@@ -48,12 +48,7 @@ function VV(n)
     return r;
 }
 
-function TestLibX(str){
-    P(`??${str}??`);
-    return libX.includes(str);
-}
-
-function FindWords(txt)
+export const FindWords = (txt) =>
 {
     let txtList = txt.split(' ');
     let checkList = [];
@@ -109,9 +104,3 @@ function FindWords(txt)
     // 186005 - 206001 = 6 word entries
     return outList.join("");
 }
-
-function P(txt){
-    console.log(txt);
-}
-
-module.exports = { P, AA, VV, FindWords, TestLibX, libX, x};
