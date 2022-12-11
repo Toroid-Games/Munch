@@ -14,7 +14,7 @@ const charDefault = () =>
 
 export const charList = charDefault();
 
-export const libX = (await readFile('./dic.txt', {encoding:'utf8'})).split(/\r\n/g);
+export const libX = (await readFile('./dic.txt', {encoding:'utf8'})).split(/\r\n|\n/g);
 
 export let x = ['yey', 'nop', 'wtf'];
 
