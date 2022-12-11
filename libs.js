@@ -13,7 +13,8 @@ function charDefault()
 }
 
 const charList = charDefault();
-const libX = fs.readFileSync('./dic.txt', {encoding:'utf8', flag:'r'}).split('\n');
+const libX = fs.readFileSync('./dic.txt', {encoding:'utf8'}).split(/\n/g);
+console.log(libX);
 let x = ['yey', 'nop', 'wtf'];
 
 // Inflate from Code to Integer - requires alphanumeric string
