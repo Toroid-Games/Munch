@@ -1,4 +1,4 @@
-import {readFile} from 'fs/promises'
+import {readFile, writeFile} from 'fs/promises'
 //const { cwd } = require('process');
 
 const charDefault = () =>
@@ -14,7 +14,7 @@ const charDefault = () =>
 
 export const charList = charDefault();
 
-export const libX = (await readFile('./dic.txt', {encoding:'utf8'})).split(/\r\n|\n/g);
+export { default as libX } from './dictionary.js'
 
 export let x = ['yey', 'nop', 'wtf'];
 
