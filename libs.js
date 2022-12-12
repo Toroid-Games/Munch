@@ -1,22 +1,20 @@
-import {readFile, writeFile} from 'fs/promises'
-//const { cwd } = require('process');
+import { default as libX } from './dictionary.js';
+//const pako = require('pako');
+//var input = new Uint8Array();
+//input = "file system name click elder eye winter obscure coffee expand embody mixed all waste control alpha nose oil unable opera badge mutual chuckle dinosaur monitor donkey naive off apart romance desk liberty setup medal marriage use pole need account prevent shed small stand script shrimp vivid accident";
+//const output = pako.deflate(input);
+//console.log(output + " Len:" + output.length);
 
-const charDefault = () =>
-{
-  return [
-      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-  ];
+function charDefault() {
+    return [
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    ];
 }
-
-export const charList = charDefault();
-
-export { default as libX } from './dictionary.js'
-
-export let x = ['yey', 'nop', 'wtf'];
+const charList = charDefault();
 
 // Inflate from Code to Integer - requires alphanumeric string
 export const AA = (a) => {
@@ -29,7 +27,7 @@ export const AA = (a) => {
 }
 
 // Deflate to Code - requires integer
-export const VV = n => 
+export const VV = (n) => 
 {
     let y = charList.length;
     let a = Math.floor(n / y);
@@ -51,8 +49,7 @@ export const VV = n =>
 export const FindWords = (txt) =>
 {
     let txtList = txt.split(' ');
-    let checkList = [];
-    let outList = [];
+    let checkList, outList = [];
     let thisStr;
     let x = 6;
     if(txtList.length < x) { x = txtList.length; }
@@ -64,11 +61,10 @@ export const FindWords = (txt) =>
             P(`I:${i} X:${x} txtList.length:${txtList.length} TOP`);
             for (let r = x; r > 0; r--)
             {
-                checkList = txtList.slice(i, r);
+                checkList = txtList.slice(i, r + i);
                 P(`CheckList:${checkList}`);
                 thisStr = checkList.join(" ");
-                P(`R:${r} thisStr:${thisStr}#`);
-                P(`LibX includes thisStr? ${libX.includes(thisStr)}`);
+                P(`R:${r} thisStr:${thisStr}# LibX includes thisStr? ${libX.includes(thisStr)}`);
                 if (libX.includes(thisStr))
                 {
                     outList.push(VV(libX.indexOf(thisStr)));
@@ -101,6 +97,10 @@ export const FindWords = (txt) =>
     }
     // test Quotes "what am I supposed to think about" 3 singles(what-am-I) 2 doubles(supposed to-think about) = xge xKe xgT 6Mv 6Ja
     // Sj8 208762 3844 100 its way through all of the
-    // 186005 - 206001 = 6 word entries
+    // 186005?? - 209847 = 6 word entries
     return outList.join("");
+}
+
+export function P(str){
+    console.log(str);
 }
