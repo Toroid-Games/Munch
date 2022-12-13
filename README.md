@@ -25,7 +25,7 @@ node test
 test.js gives an example of usage.
 
 _______________________________________________________________________________________________________________________________________________________________________
-Only Alphanumeric characters are processed.
+Only words without punctuation are processed.
 
 
 Example 1:
