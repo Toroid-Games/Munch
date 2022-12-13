@@ -34,7 +34,7 @@ for (let i = 0; i < input.length; i++) {
         const originalMunch = UnMunch(munched)
         const originalPako = new TextDecoder().decode(Pako.inflate(pakood))
         
-        tape.ok(originalMunch === originalPako, 'Origin Texts Length are Equal')
+        tape.ok(originalMunch === originalPako, 'Decoded Texts are Equal')
         tape.ok(pakoSize > munchSize, 'is smaller then pako')
         console.log(`Pako:${pakoSize} Munch:${munchSize} Both:${bothSize}`)
         P(" ")
