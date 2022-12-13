@@ -24,9 +24,11 @@ Only words without punctuation are processed.
 Example 1:
 
 unusual characters like ¬ and € or even £ will cause the compression to become larger than the original, So KEEP THESE TO A MINIMUM!
+
 Length:132
 
 1SA1rl11a#¬#102#€#sT1#£#10FtV02MmsNBu7W100#original,##So##KEEP##THESE##TO##A##MINIMUM!#
+
 Length:87
 
 _______________________________________________________________________________________________________________________________________________________________________
