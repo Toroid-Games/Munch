@@ -1,5 +1,5 @@
 import test from 'tape'
-import { Munch, UnMunch } from "./libs.js";
+import { Munch, P, UnMunch } from "./libs.js";
 import Pako from 'pako';
 
 const input = ['$', 'a','what am I supposed to think about', 'One two, buckle my shoe, Ok stop that, have some self respect.',
@@ -25,16 +25,19 @@ for (let i = 0; i < input.length; i++) {
         tape.plan(2)
         const munched = Munch(input[i])
         const pakood = Pako.deflate(input[i])
-        const pakoSize = pakood.byteLength
+        const both = Pako.deflate(munched)
+
         const munchSize = new TextEncoder().encode(munched).byteLength
-        console.log(pakoSize, munchSize);
-        
-
-        const originalPako = new TextDecoder().decode(Pako.inflate(pakood))
+        const pakoSize = pakood.byteLength
+        const bothSize = both.byteLength
+            
         const originalMunch = UnMunch(munched)
-
+        const originalPako = new TextDecoder().decode(Pako.inflate(pakood))
+        
+        tape.ok(originalMunch === originalPako, 'Origin Texts Length are Equal')
         tape.ok(pakoSize > munchSize, 'is smaller then pako')
-        tape.ok(originalMunch === originalPako, 'can decompress')
+        console.log(`Pako:${pakoSize} Munch:${munchSize} Both:${bothSize}`)
+        P(" ")
     })
 
 
