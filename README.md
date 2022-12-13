@@ -1,5 +1,5 @@
 # Munch by Toroid Games 12/12/2022 (MIT License)
-Word Compression
+Word Compression, utilising a bespoke dictionary with up to six word phrases in combination with a base 62 number compressor.
 
 Requirements:
 
