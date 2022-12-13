@@ -6,6 +6,7 @@ Requirements:
 
 Node.js 16 and above. Es6 notation in use.
 
+_______________________________________________________________________________________________________________________________________________________________________
 Instructions on Usage:
 
 
@@ -23,11 +24,13 @@ node test
 
 test.js gives an example of usage.
 
-
+_______________________________________________________________________________________________________________________________________________________________________
 Only Alphanumeric characters are processed.
 
 
-Example 1: 
+Example 1:
+
+
 unusual characters like ¬ and € or even £ will cause the compression to become larger than the original, So KEEP THESE TO A MINIMUM! Length:132
 
 
