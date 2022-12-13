@@ -39,5 +39,5 @@ Length: 158
 Q1MQ1NQ1OQ1P  
 Length: 12
 _______________________________________________________________________________________________________________________________________________________________________
-Number Compressor using ANY base.
+Number Compressor using ANY base.  
 The functions AA and VV can be used with any base number. The base is inherited from the size (length) of the variable charList. Although you would need to export them by adding export to the beginning of the function and therefore adding AA and VV to the import in test.js.
